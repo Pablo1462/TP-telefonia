@@ -97,6 +97,7 @@ datos %>%
 ### ¿Cómo ha sido la evolución anual del acceso total a la telefonía fija?
 
 ```{r}
+#| warning: false
 #Evolucion del total
 library(ggplot2)
 
@@ -114,7 +115,7 @@ ggplot(datos_anual, aes(x = Año, y = total_promedio)) +
   theme_minimal()
 
 
-# Identificar trimestres
+# Identificando trimestres
 datos <- datos %>%
   arrange(Año, Trimestre) %>%
   mutate(w = row_number())
@@ -128,7 +129,7 @@ ggplot(datos, aes(x = w, y = Total)) +
     breaks = datos$w[datos$Trimestre == 1],      # marcar solo el primer trimestre de cada año
     labels = datos$Año[datos$Trimestre == 1]     # mostrar el año como etiqueta
   ) +
-  labs(title = "Evolución del Total de líneas",
+  labs(title = "Evolución del Total",
        x = "Año",
        y = "Total de líneas") +
   theme_minimal()
@@ -250,8 +251,8 @@ ggplot(datos_long, aes(x = Año, y = Lineas, color = Dependencia)) +
 
 ```
 
-```         
-```
+La dependencia gobierno es la única que ha mantenido la cantidad de líneas
 
-```         
-```
+Se puede ver en la siguiente dirección
+
+<https://github.com/Pablo1462/TP-telefonia.git>
