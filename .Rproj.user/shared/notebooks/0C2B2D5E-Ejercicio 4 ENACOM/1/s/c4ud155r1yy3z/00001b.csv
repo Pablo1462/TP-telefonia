@@ -1,0 +1,8 @@
+"0",""
+"0","# Calcular variación porcentual"
+"0","valores$Variacion <- (valores$Ultimo - valores$Primero) / valores$Primero * 100"
+"0",""
+"0","# Formatear con dos decimales y signo %"
+"0","valores$Variacion <- sprintf(""%.2f%%"", valores$Variacion)"
+"0",""
+"0","valores"

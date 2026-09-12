@@ -1,0 +1,6 @@
+"0","#Duplicados en el total"
+"0","datos %>%"
+"0","  group_by(Total) %>%"
+"0","  filter(n() > 1) %>%"
+"0","  arrange(Total, Año, Trimestre) %>%"
+"0","  select(Año, Trimestre, Hogares, Comercial, Gobierno, Otros, Total)"

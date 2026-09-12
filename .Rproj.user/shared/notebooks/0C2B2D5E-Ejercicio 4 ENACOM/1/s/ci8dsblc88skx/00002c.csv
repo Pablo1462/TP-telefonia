@@ -1,0 +1,35 @@
+"0","#| warning: false"
+"0","#Resumen descriptivo"
+"0","library(skimr)"
+"0","# Convertir columnas de texto con separador de miles a numéricas"
+"0",""
+"0","datos <- Telefonia_fija %>%"
+"0","  mutate("
+"0","    Hogares   = as.numeric(gsub(""\\."", """", Hogares)),"
+"0","    Comercial = as.numeric(gsub(""\\."", """", Comercial)),"
+"0","    Gobierno = as.numeric(gsub(""\\."", """", Gobierno)),"
+"0","    Otros = as.numeric(gsub(""\\."", """", Otros)),"
+"0","    Total     = as.numeric(gsub(""\\."", """", Total))"
+"0","  )"
+"0",""
+"0","skim(datos)"
+"1","── Data Summary ────────────────────────
+"
+"1","                           Values
+"
+"1","Name                       datos 
+"
+"1","Number of rows             49    
+"
+"1","Number of columns          7     
+"
+"1","_______________________          
+"
+"1","Column type frequency:           
+"
+"1","  numeric                  7     
+"
+"1","________________________         
+"
+"1","Group variables            None  
+"

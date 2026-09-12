@@ -1,0 +1,37 @@
+"0","#| warning: false"
+"0","#Resumen descriptivo 2"
+"0",""
+"0","library(dplyr)"
+"0","# Convertir todas las columnas Hogares:Total a numéricas"
+"0","#datos <- datos %>%"
+"0","#  mutate(across(Hogares:Total,"
+"0","#                ~as.numeric(gsub(""\\."", """", .))))"
+"0",""
+"0","resumen <- datos %>%"
+"0","  summarise(across(Hogares:Total,"
+"0","                   list(media = mean,"
+"0","                        mediana = median,"
+"0","                        min = min,"
+"0","                        max = max),"
+"0","                   na.rm = TRUE)) %>%"
+"0","  pivot_longer(everything(),"
+"0","               names_to = c(""variable"", ""medida""),"
+"0","               names_sep = ""_"") %>%"
+"0","  pivot_wider(names_from = medida, values_from = value)"
+"0","print(resumen)"
+"1","[38;5;246m# A tibble: 5 × 5[39m
+"
+"1","  variable     media mediana     min      max
+"
+"1","  [3m[38;5;246m<chr>[39m[23m        [3m[38;5;246m<dbl>[39m[23m   [3m[38;5;246m<dbl>[39m[23m   [3m[38;5;246m<dbl>[39m[23m    [3m[38;5;246m<dbl>[39m[23m
+"
+"1","[38;5;250m1[39m Hogares   7[4m2[24m[4m7[24m[4m3[24m173. 6[4m9[24m[4m3[24m[4m3[24m738 5[4m7[24m[4m4[24m[4m1[24m731  9[4m0[24m[4m3[24m[4m7[24m000
+"
+"1","[38;5;250m2[39m Comercial  [4m7[24m[4m0[24m[4m9[24m129.  [4m6[24m[4m6[24m[4m9[24m618  [4m5[24m[4m0[24m[4m7[24m262  1[4m1[24m[4m3[24m[4m4[24m427
+"
+"1","[38;5;250m3[39m Gobierno    [4m3[24m[4m2[24m991.   [4m3[24m[4m4[24m155   [4m2[24m[4m6[24m497    [4m3[24m[4m9[24m825
+"
+"1","[38;5;250m4[39m Otros      [4m2[24m[4m7[24m[4m6[24m839.  [4m1[24m[4m4[24m[4m9[24m460   [4m5[24m[4m4[24m321   [4m5[24m[4m7[24m[4m2[24m106
+"
+"1","[38;5;250m5[39m Total     8[4m2[24m[4m9[24m[4m2[24m133. 7[4m6[24m[4m2[24m[4m6[24m355 6[4m4[24m[4m1[24m[4m5[24m831 10[4m3[24m[4m7[24m[4m9[24m749
+"
